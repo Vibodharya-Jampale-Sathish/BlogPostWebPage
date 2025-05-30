@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Top bar with Logout button -->
+    <div class="top-bar">
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+
+    <!-- Centered blog creation box -->
+    <div class="box">
+        <h2>Create a New Blog Post</h2>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flash">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Blog creation form -->
+        <form method="POST">
+            <label>Blog Title:</label><br>
+            <input type="text" name="blog_name" required><br><br>
+
+            <label>Content:</label><br>
+            <textarea name="blog_content" rows="6" cols="40" required></textarea><br><br>
+
+            <button type="submit">Publish Blog</button>
+        </form>
+    </div>
+</body>
+</html>

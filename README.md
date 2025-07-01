@@ -36,12 +36,6 @@ A responsive web application to **create, read, update, and delete blog posts**,
 
 ## 🧠 Architecture
 ```mermaid
-
-
-```mermaid
-
-
-```mermaid
 flowchart TD
     subgraph User Interface (Browser)
         A1[Login Form (/login)]

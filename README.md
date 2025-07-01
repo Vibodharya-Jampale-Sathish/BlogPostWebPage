@@ -36,25 +36,19 @@ A responsive web application to **create, read, update, and delete blog posts**,
 
 ## 🧠 Architecture
 ```mermaid
+
+
+```mermaid
 flowchart TD
-    subgraph User
-      A[User Browser]
+    A[User Browser]
+    
+    subgraph Flask Application
+        B1[Route: /] 
+        B2[Route: /create]
+        B3[Route: /view/<id>]
+        B4[Route: /edit/<id>]
+        B5[Route: /delete/<id>]
+        B6[HTML Templates (Jinja2)]
     end
 
-    subgraph Flask App
-      B[Flask Routes & Templates]
-      B1[/home, list posts]
-      B2[/create]
-      B3[/view/<id>]
-      B4[/edit/<id>]
-      B5[/delete/<id>]
-    end
-
-    subgraph PostgreSQL
-      C[blog_posts table]
-    end
-
-    A --> B
-    B --> C
-    C --> B --> A
 ```

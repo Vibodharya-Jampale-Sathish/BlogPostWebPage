@@ -37,47 +37,42 @@ A responsive web application to **create, read, update, and delete blog posts**,
 ## 🧠 Architecture
 ```mermaid
 flowchart TD
-    subgraph User Interface (Browser)
-        A1[Login Form (/login)]
-        A2[Registration Form (/register)]
-        A3[Blog Post Form (/blog)]
-        A4[Logout Link (/logout)]
-    end
+    %% User-facing routes
+    A1[Login Page (/login)]
+    A2[Register Page (/register)]
+    A3[Blog Page (/blog)]
+    A4[Logout Link (/logout)]
 
-    subgraph Flask Application
-        B1[Route: /login]
-        B2[Route: /register]
-        B3[Route: /blog]
-        B4[Route: /logout]
-        B5[Session Management]
-        B6[Flash Messaging]
-        B7[Templates: login.html, register.html, blog.html]
-        B8[Validation & Redirect Logic]
-    end
+    %% Flask routes and logic
+    B1[Flask Route: /login]
+    B2[Flask Route: /register]
+    B3[Flask Route: /blog]
+    B4[Flask Route: /logout]
+    B5[Session & Flash Logic]
+    B6[Jinja2 Templates]
+    B7[Validation & Redirects]
 
-    subgraph PostgreSQL Database
-        C1[(users Table)]
-        C2[(blogs Table)]
-    end
+    %% Database
+    C1[(users Table)]
+    C2[(blogs Table)]
 
-    A1 --> B1
-    A2 --> B2
-    A3 --> B3
+    %% Flow
+    A1 --> B1 --> C1
+    A2 --> B2 --> C1
+    A3 --> B3 --> C2
     A4 --> B4
 
-    B1 --> C1
-    B2 --> C1
-    B3 --> C2
-
     B1 --> B5
+    B2 --> B5
+    B3 --> B5
+    B4 --> B5
+
+    B1 --> B6
     B2 --> B6
     B3 --> B6
-    B4 --> B5
+
     B1 --> B7
     B2 --> B7
     B3 --> B7
-    B1 --> B8
-    B2 --> B8
-    B3 --> B8
 
 ```

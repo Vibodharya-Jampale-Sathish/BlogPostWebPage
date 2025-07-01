@@ -37,26 +37,26 @@ A responsive web application to **create, read, update, and delete blog posts**,
 ## 🧠 Architecture
 ```mermaid
 flowchart TD
-    %% User-facing routes
-    A1[Login Page (/login)]
-    A2[Register Page (/register)]
-    A3[Blog Page (/blog)]
-    A4[Logout Link (/logout)]
+    %% User Views
+    A1[Login Page]
+    A2[Register Page]
+    A3[Blog Form Page]
+    A4[Logout Action]
 
-    %% Flask routes and logic
-    B1[Flask Route: /login]
-    B2[Flask Route: /register]
-    B3[Flask Route: /blog]
-    B4[Flask Route: /logout]
-    B5[Session & Flash Logic]
+    %% Flask Routes
+    B1[Route Login]
+    B2[Route Register]
+    B3[Route Blog]
+    B4[Route Logout]
+    B5[Session and Flash]
     B6[Jinja2 Templates]
-    B7[Validation & Redirects]
+    B7[Validation Logic]
 
-    %% Database
-    C1[(users Table)]
-    C2[(blogs Table)]
+    %% PostgreSQL Tables
+    C1[Users Table]
+    C2[Blogs Table]
 
-    %% Flow
+    %% Flow Connections
     A1 --> B1 --> C1
     A2 --> B2 --> C1
     A3 --> B3 --> C2
